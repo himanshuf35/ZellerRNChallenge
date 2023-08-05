@@ -13,8 +13,7 @@ import React, {useContext, useMemo, useState, useCallback, ComponentType, Functi
 import {View, StyleSheet, ActivityIndicator, Dimensions} from 'react-native';
 import {EdgeInsets, SafeAreaInsetsContext} from 'react-native-safe-area-context';
 import {NetworkStatusContext} from '../network/NetworkStatus';
-import { MainStackParamsList, MainStackScreenProps, WrappedScreenComponentProps } from '../types/commonTypes';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { MainStackScreenProps, WrappedScreenComponentProps } from '../types/navigation';
 
 const {height, width} = Dimensions.get('screen');
 

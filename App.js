@@ -2,21 +2,20 @@
  * Forms
  * App
  * @author-Himanshu Yadav
- * @modify date 2023-08-04 15:27:31
+ * @modify date 2023-08-05 21:14:10
  */
 
 import React, {useEffect, useState} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
-import ErrorBoundary from './src/components/ErrorBoundary';
-import Store from './src/store';
-import AppNavigator from './src/navigationRoutes';
-import {PersistGate} from 'redux-persist/integration/react';
 import RNAsyncStorageFlipper from 'rn-async-storage-flipper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ErrorBoundary from './src/components/ErrorBoundary';
+import store from './src/store';
+import AppNavigator from './src/navigationRoutes';
 import NetInfo, {NetworkStatusProvider} from './src/network/NetworkStatus';
+import {client, GraphQLProvider} from './src/graphQL';
 
-const {store, persistor} = Store();
 const App = () => {
   const [isConnectionAvailable, setConnectionAvailable] = useState(true);
   useEffect(() => {
@@ -35,13 +34,13 @@ const App = () => {
   return (
     <ErrorBoundary>
       <SafeAreaProvider>
-        <NetworkStatusProvider value={isConnectionAvailable}>
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
+        <GraphQLProvider client={client}>
+          <NetworkStatusProvider value={isConnectionAvailable}>
+            <Provider store={store}>
               <AppNavigator />
-            </PersistGate>
-          </Provider>
-        </NetworkStatusProvider>
+            </Provider>
+          </NetworkStatusProvider>
+        </GraphQLProvider>
       </SafeAreaProvider>
     </ErrorBoundary>
   );

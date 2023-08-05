@@ -7,11 +7,7 @@
  */
 
 export const Texts = {
-  //onboarding screen
-  example: 'example',
-  login: 'Login',
-  discovery: 'Discovery',
-  register: 'Register',
+  userListing: 'User Listing',
 };
 
 export const Errors = {

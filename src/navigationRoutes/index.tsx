@@ -20,7 +20,7 @@ import {
 
 //Screen Imports
 import UserListing from '../screenModules/users/UserListing';
-import { MainStackParamsList } from '../types/commonTypes';
+import { MainStackParamsList } from '../types/navigation';
 
 const Stack = createNativeStackNavigator<MainStackParamsList>();
 const Tab = createBottomTabNavigator();

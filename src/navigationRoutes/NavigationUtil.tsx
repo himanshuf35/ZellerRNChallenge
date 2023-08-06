@@ -6,31 +6,31 @@
  * @desc Util file for navigators which contains screenOptions to apply on navigators screens, i.e. headerShown
  */
 
-import React from 'react';
-import {Colors, ScreenNames} from '../constants/Constants';
-import ProfileIcon from '../assets/svgs/profile.svg';
-import DiscoveryIcon from '../assets/svgs/discovery.svg';
-import { DefaultRouterOptions, Route } from '@react-navigation/native';
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+// import React from 'react';
+// import {Colors} from '../constants/Constants';
+// import ProfileIcon from '../assets/svgs/profile.svg';
+// import DiscoveryIcon from '../assets/svgs/discovery.svg';
+// import {Route} from '@react-navigation/native';
+import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 
-type TabScreenOptionsParam = {
-  route: Route<string>
-}
+// type TabScreenOptionsParam = {
+//   route: Route<string>;
+// };
 
-type TabBarIconParam = {
-  color: string;
-}
+// type TabBarIconParam = {
+//   color: string;
+// };
 
-export const stackScreenOptions: NativeStackNavigationOptions  = {
+export const stackScreenOptions: NativeStackNavigationOptions = {
   headerShown: false,
   animation: 'slide_from_right',
 };
 
-export const tabScreenOptions = ({route}: TabScreenOptionsParam) => ({
-  tabBarActiveTintColor: Colors.glOrange,
-  tabBarInactiveTintColor: Colors.glGrey,
-  headerShown: false,
-});
+// export const tabScreenOptions = ({route}: TabScreenOptionsParam) => ({
+//   tabBarActiveTintColor: Colors.primaryBlue,
+//   tabBarInactiveTintColor: Colors.borderGrey,
+//   headerShown: false,
+// });
 
 export const drawerScreenOptions = {
   drawerType: 'front',

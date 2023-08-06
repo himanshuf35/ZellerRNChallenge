@@ -13,23 +13,21 @@ export const deviceWidth = Dimensions.get('window').width;
 export const IS_IOS = Platform.OS === 'ios';
 export const IS_ANDROID = Platform.OS === 'android';
 
-
-export const ScreenNames  = {
+export const ScreenNames = {
   UserListing: 'listing',
   MyTabs: 'MyTabs',
   MyStack: 'MyStack',
 };
 
 export const Colors = {
-  glWhite: '#F2F2F2',
-  glGrey: '#707070',
-  glBlack: '#2F2F2F',
-  glOrange: '#FF8C63',
-  glButtonOrange: '#FF8C68',
-  white: '#FFFFFF',
-  glPlaceholder: 'rgba(39, 39, 39, 0.3)',
-  glTextLight: 'rgba(39, 39, 39, 0.7)',
-  glTextGen: 'rgba(39, 39, 39, 1)',
+  white: '#ffffff',
+  primaryBlack: '#212322',
+  backgroundBlue: '#E8F2FB',
+  primaryBlue: '#0370ce',
+  textBlue: '#1979d1',
+  textGrey: '#5f605f',
+  separatorGrey: '#e9edf3',
+  borderGrey: '#e9edf3',
 };
 
 export const Fonts = {
@@ -46,60 +44,3 @@ export const Fonts = {
   OpenSansSemiBold: 'OpenSans-SemiBold',
   OpenSansSemiBoldItalic: 'OpenSans-SemiBoldItalic',
 };
-
-export const AsyncKeys = {
-  userData: '@userData',
-};
-
-export const Debug = {
-  APILogs: true,
-};
-
-export const Numbers = {
-  maxPhoneNo: 13,
-  minPhoneNo: 6,
-  maxContributionPercent: 100,
-};
-export const APIParameters = {
-  //General
-  id: '_id',
-  data: 'data',
-  userId: 'userId',
-  UserId_: 'UserId',
-  token: 'token',
-  name: 'name',
-  description: 'description',
-  deviceToken: 'deviceToken',
-  deviceId: 'deviceId',
-  deviceType: 'deviceType',
-
-  //User
-  email: 'email',
-  password: 'password',
-  firstName: 'firstName',
-  lastName: 'lastName',
-  countryCode: 'countryCode',
-  phoneNumber: 'phoneNumber',
-  dateOfBirth: 'dob',
-  residency: 'residency',
-  nationality: 'nationality',
-  receiveMarketing: 'receiveMarketing',
-  imageUrl: 'imageUrl',
-  referalCode: 'referedByCode',
-  referedPhoneNumber: 'referedByPhoneNumber',
-  accessCode: 'access_code',
-};
-
-export const LoginState = {
-  login: 'logged in',
-};
-
-export const daysOfWeeks = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];

@@ -7,7 +7,11 @@
  */
 
 export const Texts = {
-  userListing: 'User Listing',
+  userTypes: 'User Types',
+  admin: 'Admin',
+  manager: 'Manager',
+  users: 'Users',
+  allUsers: 'All Users',
 };
 
 export const Errors = {

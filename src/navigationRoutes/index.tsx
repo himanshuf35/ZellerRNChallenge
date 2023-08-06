@@ -9,22 +9,17 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {ScreenNames} from '../constants/Constants';
-import {
-  stackScreenOptions,
-  tabScreenOptions,
-  drawerScreenOptions,
-} from './NavigationUtil';
+// import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+// import {createDrawerNavigator} from '@react-navigation/drawer';
+import {stackScreenOptions} from './NavigationUtil';
 
 //Screen Imports
 import UserListing from '../screenModules/users/UserListing';
-import { MainStackParamsList } from '../types/navigation';
+import {MainStackParamsList} from '../types/navigation';
 
 const Stack = createNativeStackNavigator<MainStackParamsList>();
-const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
+// const Tab = createBottomTabNavigator();
+// const Drawer = createDrawerNavigator();
 
 // const MainTab = () => {
 //   return (

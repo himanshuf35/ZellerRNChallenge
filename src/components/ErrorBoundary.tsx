@@ -1,14 +1,17 @@
-import React, { ComponentProps, ErrorInfo } from 'react';
+import React, {ComponentProps, ErrorInfo} from 'react';
 import {SafeAreaView, Text, StyleSheet, View} from 'react-native';
 import Logger from '../utils/LoggerUtil';
 
 type ErrorBoundaryProps = ComponentProps<typeof View>;
 type State = {
   hasError: boolean;
-}
+};
 
 //This component is class based component because error catching lifecycle methods are available for Class based components only
-export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, State > {
+export default class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  State
+> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {hasError: false};

@@ -1,14 +1,13 @@
-import { gql } from '@apollo/client';
+import {gql} from '@apollo/client';
 
 export const ALL_CUSTOMERS_LIST = gql`
   query {
     listZellerCustomers {
       items {
-        id,
-        name,
-        email,
-        role,
+        id
+        name
+        role
       }
     }
   }
-`
+`;

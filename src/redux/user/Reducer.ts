@@ -1,4 +1,4 @@
-import { Action } from "../../types/commonTypes";
+import {Action} from '../../types/commonTypes';
 
 const initialState = {};
 

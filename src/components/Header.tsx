@@ -37,7 +37,7 @@ const Header = (props: HeaderProps) => {
       <View style={[styles.container, paddingStyle]}>
         <TouchableOpacity onPress={onMenuPress} style={styles.sideView}>
           {showBack ? (
-            <BackIcon height={20} width={20} fill={Colors.glBlack} />
+            <BackIcon height={20} width={20} fill={Colors.primaryBlack} />
           ) : (
             <HamburgerIcon />
           )}
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: Fonts.OpenSansMedium,
     textAlign: 'center',
-    color: Colors.glBlack,
+    color: Colors.primaryBlack,
   },
   sideView: {
     flex: 0.2,

@@ -1,11 +1,11 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { EdgeInsets } from 'react-native-safe-area-context';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {EdgeInsets} from 'react-native-safe-area-context';
 
 export type MainStackParamsList = {
-  UserListing: undefined
-}
+  UserListing: undefined;
+};
 
-export type MainStackScreenProps = NativeStackScreenProps<MainStackParamsList>
+export type MainStackScreenProps = NativeStackScreenProps<MainStackParamsList>;
 
 export type WrappedScreenComponentProps = MainStackScreenProps & {
   insets: EdgeInsets | null;
@@ -13,4 +13,4 @@ export type WrappedScreenComponentProps = MainStackScreenProps & {
   showLoader: Function;
   hideLoader: Function;
   isConnectionAvailable: boolean;
-}
+};

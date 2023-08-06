@@ -16,7 +16,28 @@ const server = new ApolloServer({
     schema,
     resolvers: {
       Query: {
-        listZellerCustomers: () => listZellerCustomers,
+        listZellerCustomers: (_, args) => {
+          const argsLength = Object.entries(args)?.length;
+          if (argsLength === 0) {
+            return listZellerCustomers;
+          } else if (args.filter.role.eq === 'Admin') {
+            return {
+              ...listZellerCustomers,
+              items: listZellerCustomers.items.filter(
+                user => user.role === 'Admin',
+              ),
+            };
+          } else if (args.filter.role.eq === 'Manager') {
+            return {
+              ...listZellerCustomers,
+              items: listZellerCustomers.items.filter(
+                user => user.role === 'Manager',
+              ),
+            };
+          } else {
+            return listZellerCustomers;
+          }
+        },
         getZellerCustomer: () => getZellerCustomer,
       },
     },

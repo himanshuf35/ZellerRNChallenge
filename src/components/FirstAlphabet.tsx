@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   alphabetText: {
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: Fonts.OpenSansRegular,
     color: Colors.primaryBlue,
   },

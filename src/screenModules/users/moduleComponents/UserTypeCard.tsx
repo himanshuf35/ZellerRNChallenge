@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useCallback, useMemo} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, Pressable} from 'react-native';
 import {Colors, Fonts} from '../../../constants/Constants';
 import RadioButton from '../../../components/RadioButton';
 import {FunctionWithOneParam} from '../../../types/commonTypes';
@@ -24,16 +24,20 @@ const UserTypeCard: FunctionComponent<UserTypeCardProps> = props => {
     [type, setCurrentType],
   );
 
+  const onCardPress = useCallback(() => {
+    onSelection(!isSelected);
+  }, [isSelected, onSelection]);
+
   const containerStyle = useMemo(
     () => [styles.container, isSelected && styles.selectedContainer],
     [isSelected],
   );
 
   return (
-    <View style={containerStyle}>
+    <Pressable onPress={onCardPress} style={containerStyle}>
       <RadioButton isSelected={isSelected} onSelection={onSelection} />
       <Text style={styles.userTypeText}>{type}</Text>
-    </View>
+    </Pressable>
   );
 };
 

@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client';
 
-export const ALL_CUSTOMERS_LIST = gql`
-  query {
-    listZellerCustomers {
+export const FILTER_CUSTOMER_LIST = gql`
+  query ListCustomers($roleFilter: String) {
+    listZellerCustomers(filter: {role: {eq: $roleFilter}}) {
       items {
         id
         name

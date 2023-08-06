@@ -6,8 +6,14 @@
  * @desc [User listing screen]
  */
 
-import React, {FunctionComponent, useCallback, useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import React, {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useState,
+  useRef,
+} from 'react';
+import {View, Text, StyleSheet, FlatList, RefreshControl} from 'react-native';
 // import SGHeader from '../../components/Header';
 import {Texts} from '../../constants/Strings';
 import ScreenWrapper from '../../components/ScreenWrapper';
@@ -24,9 +30,34 @@ type RenderItemArg = {
   index: number;
 };
 
-const UserListing: FunctionComponent<WrappedScreenComponentProps> = () => {
-  const {data} = useZellerCustomersList();
+const UserListing: FunctionComponent<WrappedScreenComponentProps> = props => {
+  const {showLoader, hideLoader} = props;
   const [selectedType, setSelectedType] = useState('');
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const {fetchList, loading, data} = useZellerCustomersList(selectedType);
+  const isRefreshLoading = useRef(false);
+
+  useEffect(() => {
+    fetchList();
+  }, [fetchList]);
+
+  useEffect(() => {
+    if (isRefreshLoading.current) {
+      if (!loading) {
+        setIsRefreshing(false);
+        isRefreshLoading.current = false;
+      }
+    } else {
+      loading ? showLoader() : hideLoader();
+    }
+  }, [hideLoader, loading, showLoader]);
+
+  const onRefresh = useCallback(() => {
+    isRefreshLoading.current = true;
+    setIsRefreshing(true);
+    fetchList();
+  }, [fetchList]);
+
   const renderListHeader = useCallback(() => {
     const title = selectedType
       ? `${selectedType} ${Texts.users}`
@@ -71,6 +102,9 @@ const UserListing: FunctionComponent<WrappedScreenComponentProps> = () => {
     <View style={styles.container}>
       {renderUserTypes()}
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+        }
         style={styles.userList}
         ListFooterComponent={renderListFooter}
         ListHeaderComponent={renderListHeader}

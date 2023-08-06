@@ -7,6 +7,7 @@ export const FILTER_CUSTOMER_LIST = gql`
         id
         name
         role
+        email
       }
     }
   }

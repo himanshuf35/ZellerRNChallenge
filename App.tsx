@@ -5,7 +5,7 @@
  * @modify date 2023-08-05 21:14:10
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
 import RNAsyncStorageFlipper from 'rn-async-storage-flipper';
@@ -16,7 +16,7 @@ import AppNavigator from './src/navigationRoutes';
 import NetInfo, {NetworkStatusProvider} from './src/network/NetworkStatus';
 import {client, GraphQLProvider} from './src/graphQL';
 
-const App = () => {
+const App: FC = () => {
   const [isConnectionAvailable, setConnectionAvailable] = useState(true);
   useEffect(() => {
     //Enable async storage flipper plugin in dev mode
@@ -24,7 +24,7 @@ const App = () => {
       RNAsyncStorageFlipper(AsyncStorage);
     }
     const netUnsubscribeFunc = NetInfo.addEventListener(state => {
-      setConnectionAvailable(state.isConnected);
+      setConnectionAvailable(state?.isConnected ?? false);
     });
     return () => {
       netUnsubscribeFunc();

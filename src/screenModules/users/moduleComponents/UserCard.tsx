@@ -1,25 +1,33 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useCallback} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import Touchable from '../../../components/Touchable';
 import {User} from '../../../types/users';
 import {Colors, Fonts} from '../../../constants/Constants';
 import FirstAlphabet from '../../../components/FirstAlphabet';
+import {useNavigation} from '@react-navigation/native';
 
 type UserCardProps = {
   item: User;
 };
 
 const UserCard: FunctionComponent<UserCardProps> = props => {
-  const {
-    item: {name, role},
-  } = props;
+  const {item} = props;
+  const {name, role} = item;
+  const navigation = useNavigation();
+  const onCardPress = useCallback(() => {
+    navigation.navigate('UserDetails', {
+      user: item,
+    });
+  }, [item, navigation]);
+
   return (
-    <View style={styles.container}>
+    <Touchable onPress={onCardPress} style={styles.container}>
       <FirstAlphabet name={name} />
       <View style={styles.detailsView}>
-        <Text style={styles.nameText}>{name}</Text>
-        <Text style={styles.roleText}>{role}</Text>
+        <Text style={styles.nameText}>{name ?? '-'}</Text>
+        <Text style={styles.roleText}>{role ?? '-'}</Text>
       </View>
-    </View>
+    </Touchable>
   );
 };
 

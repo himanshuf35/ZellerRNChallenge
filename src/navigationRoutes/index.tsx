@@ -16,6 +16,7 @@ import {stackScreenOptions} from './NavigationUtil';
 //Screen Imports
 import UserListing from '../screenModules/users/UserListing';
 import {MainStackParamsList} from '../types/navigation';
+import UserDetails from '../screenModules/users/UserDetails';
 
 const Stack = createNativeStackNavigator<MainStackParamsList>();
 // const Tab = createBottomTabNavigator();
@@ -33,6 +34,7 @@ const MainStack = () => {
   return (
     <Stack.Navigator screenOptions={stackScreenOptions}>
       <Stack.Screen name={'UserListing'} component={UserListing} />
+      <Stack.Screen name={'UserDetails'} component={UserDetails} />
     </Stack.Navigator>
   );
 };

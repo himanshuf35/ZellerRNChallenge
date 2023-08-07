@@ -17,13 +17,20 @@ Zeller RN coding challenge using Typescript and GraphQL
     npm install
 ```
 
-`npm install` this will install the RN node modules along with apollo server
+`npm install` - this will install the RN node modules along with apollo server
 
 ### Getting started for Android
 
 ---
 
-- Now run Android application using
+- Now run the Android application using
+
+If apollo server is already running
+
+```sh
+    npm run android
+```
+else
 
 ```sh
     npm run androidApp
@@ -34,6 +41,12 @@ Zeller RN coding challenge using Typescript and GraphQL
 ---
 
 run command `npm run podInstall` to install pods after node modules installation
+
+If apollo server is already running
+
+```sh
+    npm run ios
+```
 
 - Run iOS application using
 
